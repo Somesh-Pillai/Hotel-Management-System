@@ -15,8 +15,8 @@ app.config['SECRET_KEY'] = 'abababab'
 app.permanent_session_lifetime=timedelta(minutes=30)
 app.config['MAIL_SERVER']= 'smtp.gmail.com'
 app.config['MAIL_PORT']= 465
-app.config['MAIL_USERNAME']= 'atlantishotel2021@gmail.com'
-app.config['MAIL_PASSWORD']= 'atlantis2021'
+app.config['MAIL_USERNAME']= '<yoursendingmailid>@gmail.com'
+app.config['MAIL_PASSWORD']= '<mailidpassword>'
 app.config['MAIL_USE_TLS']= False
 app.config['MAIL_USE_SSL']= True
 
@@ -81,7 +81,7 @@ flag=0
 @app.route("/alogin",methods=['GET','POST'])
 def alogin():
     if request.method=='POST':
-        if request.form.get('Username')== "Somesh" and request.form.get('Password')=='swasom2324':
+        if request.form.get('Username')== "<yourusername>" and request.form.get('Password')=='<yourpassword>':
             session['log']=True
             global flag
             if flag==0:
@@ -182,7 +182,7 @@ def booking():
         + "\nEnd Date: " + str(enddate) +"\nCount: " + str(count) + "\nFinal Cost: " + str(cost) +"\n\n\nThank You for choosing us!\nWith Love!\nATLANTIS :)"
 
         subject="Booking Info"
-        message=Message(subject=subject,sender="atlantishotel2021@gmail.com",recipients=[email])
+        message=Message(subject=subject,sender="<yoursendingmailid>@gmail.com",recipients=[email])
         message.body=msg
         mail.send(message)
         flash(f"Booking Confirmation Sent To Mail!",'success')
