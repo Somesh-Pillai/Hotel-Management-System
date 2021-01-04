@@ -1,0 +1,34 @@
+{% extends "welcome.html" %}
+{% block title%}History{% endblock %}
+{% block content %}
+
+      <br>
+     <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Checked Out</th>
+          <th scope="col">Cost</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+
+          <tr>
+            {% for items in values %}
+              <td>{{items.name}}</td>
+              <td>{{items.email}}</td>
+              <td>{{enddate}}</td>
+              <td>{{items.b_cost}}</td>
+              <td>{{items.b_status}}</td>
+           </tr>
+           {% endfor %}
+      </tbody>
+    </table>
+    </table>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "welcome.html" %}
+{% block title %}Booking{% endblock %}
+{% block content %}
+    <div id="booking">
+<form name="form_ulogin" method="post">
+  <div class="container">
+  <br>
+  <h2>Book Now</h2>
+  <br>
+  <form method="POST" action="{{url_for('booking')}}">
+    <div class="form-group">
+      <label for="Name">Name</label>
+      <input type="text" class="form-control" id="name" name="bname">
+    </div>
+    <div class="form-group">
+      <label for="Email">Email address</label>
+      <input type="email" class="form-control" id="Email" name="bemail" required>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="type">Only available types shown</label>
+       <select name="type">
+         <option value= ""></option>
+         {% for t in type %}
+         <option value= "{{t.t_name}}">{{t.t_name}}</option>
+         {% endfor%}
+        </select>
+        <br>
+        <br>
+    <div class="form-group">
+      <label for="StartDate">Start Date</label>
+      <input type="date" class="form-control" id="date" name="sd" placeholder="YYYY-MM-DD">
+    </div>
+    <div class="form-group">
+      <label for="EndDate">End Date</label>
+      <input type="date" class="form-control" id="date" name="ed" placeholder="YYYY-MM-DD">
+    </div>
+    <div class="form-group">
+      <label for="Count">Count</label>
+      <input type="text" class="form-control" id="Count" name="count">
+    </div>
+    <button type="submit" class="btn btn-primary" id="submit">Book Now!!</button>
+  </form>
+  </div>
+{% endblock %}

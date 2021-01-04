@@ -1,0 +1,39 @@
+
+{% extends "welcome.html" %}
+{% block title%}Welcome Page{% endblock %}
+{% block content %}
+
+<div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{category}}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <br>
+    <H1> Hi {{name}}, Welcome!!</h1>
+    <br>
+    <div class="row">
+        {% for t in type %}
+
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{t.t_img}}" class="card-img-top" alt="{{t.t_name}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ t.t_name }}</h5>
+                        <p class="card-text">Rooms available according to your choice!</p>
+                        <p class="card-text">Cost: {{ t.t_cost }}</p>
+                    </div>
+                </div>
+            </div>
+
+
+        {% endfor %}
+    </div>
+    <br>
+    <br>
+    <centre><h4>Book according to the availability of the rooms :)</h4></centre>
+
+</div>
+{% endblock %}
