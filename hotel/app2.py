@@ -59,9 +59,6 @@ class Bookings(db.Model):
         ed = db.Column(db.DateTime)  #yyyy-mm-dd   from datetime import datetime
         b_status = db.Column(db.String(20), default='Booking Pending')
         b_cost= db.Column(db.Integer)
-#todays_datetime = datetime(datetime.today().year, datetime.today().month, datetime.today().day)
-
-#payments = Payment.query.filter(Payment.due_date >= todays_datetime).all()
 
 ### Admin Permissions
 
